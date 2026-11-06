@@ -1,0 +1,11 @@
+image: rust:latest
+
+stages:
+  - test
+
+test:
+  stage: test
+  script:
+    - cargo test --locked
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH'
